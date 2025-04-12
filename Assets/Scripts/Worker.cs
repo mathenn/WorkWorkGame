@@ -3,34 +3,48 @@ using UnityEngine;
 public class Worker : MonoBehaviour
 {
 
-    bool isSelected;
+    bool _isSelected;
     public LayerMask resourceLayer;
     public float collectDistance;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Resource _currentResource;
+
+    public float timeBetweenCollect;
+    float _nextCollectTime;
+    public int collectAmount;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isSelected == true)
+        if (_isSelected == true)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
 
             transform.position = mousePos;
+
+            Collider2D col = Physics2D.OverlapCircle(transform.position, collectDistance, resourceLayer);
+
+            if (col != null && _currentResource == null)
+            {
+                _currentResource = col.GetComponent<Resource>();
+            } else
+            {
+                _currentResource = null;
+            }
         }
     }
 
     private void OnMouseDown()
-    {
-        isSelected = true;
+    { 
+        _isSelected = true;
     }
 
     private void OnMouseUp()
     {
-        isSelected = false;
+        _isSelected = false;
     }
 }
