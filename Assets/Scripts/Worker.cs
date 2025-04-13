@@ -36,6 +36,16 @@ public class Worker : MonoBehaviour
                 _currentResource = null;
             }
         }
+
+        if (_currentResource != null)
+        {
+            if (Time.time > _nextCollectTime)
+            {
+                _nextCollectTime = Time.time + timeBetweenCollect;
+                _currentResource.resourceAmount -= collectAmount;
+                ResourceManager.instance.AddResource(_currentResource.resourceType, collectAmount);
+            }
+        }
     }
 
     private void OnMouseDown()
