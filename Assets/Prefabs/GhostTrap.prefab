@@ -83,7 +83,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.5106962, y: 2.84}
+  m_Size: {x: 3.5636363, y: 2.6363637}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a8a60f30d70034b98f4fde043c9d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 6878820532945183656, guid: 4772be3f9b520974aaa8712460820aee, type: 3}
 --- !u!1 &9144441050354874849
 GameObject:
   m_ObjectHideFlags: 0

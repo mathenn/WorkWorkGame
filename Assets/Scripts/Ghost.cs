@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    // to add: object to spawn and etc
+
+    public GameObject objectToSpawn;
 
     void Start()
     {
@@ -16,5 +17,11 @@ public class Ghost : MonoBehaviour
         mousePos.z = 0;
 
         transform.position = mousePos;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }
